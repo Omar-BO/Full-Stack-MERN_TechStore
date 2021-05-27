@@ -1,0 +1,14 @@
+CLIENT:
+    *Dependencies:
++axios: pour créer les API Request
++moment: pour date
++react-file-base64: pour convertir les images
++redux, redux-thunk: A-Sync actions
+
+SERVER:
+    *Dependencies:
++ body-parser: pour envoyer les POST Request
++ cors: cross origin request
++ express: framework Node JS
++ mongoose: pour crere des models pour POST
++ nodemon: pour appliquer les chanegement dynamiquement dans l'application
