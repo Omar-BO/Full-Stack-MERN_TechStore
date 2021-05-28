@@ -17,3 +17,12 @@ export const addCompany = (company) => async(dispatch) => {
         console.log(error.messaage);
     }
 }
+
+export const updateCompany = (id, company) => async (dispatch) => {
+    try {
+        const { data } = await api.updateCompany(id, company);
+        dispatch( {type: 'UPDATE', payload: data});
+    } catch (error) {
+        console.log(error.messaage);
+    }
+}

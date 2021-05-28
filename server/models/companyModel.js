@@ -7,6 +7,7 @@ const companySchema = mongoose.Schema({
     zipCode: String,
     country: String,
     logo: String,
+    contacts: Number,
     addedAt: {
         type: Date,
         default: new Date()

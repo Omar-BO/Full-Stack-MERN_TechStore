@@ -1,22 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import useStyles from './newCompanyStyle.js';
 import { TextField, Button, Typography, Paper} from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
-import { addCompany } from '../../actions/companysAction.js';
+import { addCompany, updateCompany } from '../../actions/companysAction.js';
+import {useSelector} from 'react-redux';
 
-const NewCompany = () => {
-    const [companyData, setCompanyData] = useState({id:'',name: '',address: '',zipCode: '',country: '',logo:'',});
+const NewCompany = ({currentId, setCurrentId}) => {
+    const [companyData, setCompanyData] = useState({id:'',name: '',address: '',zipCode: '',country: '',logo:'',contacts:''});
+    const companyToUpd = useSelector((state)=> currentId ? state.companysRed.find((p)=> p._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addCompany(companyData));
+        if(currentId){
+            dispatch(updateCompany(currentId, companyData));
+        }
+        else{
+            dispatch(addCompany(companyData));
+        }
     }
     const clear = () => {
 
     }
-
+    useEffect(() => {
+        if (companyToUpd) setCompanyData(companyToUpd);
+    },[companyToUpd]);
     return(
         <Paper className={classes.paper}>
             <form autoComplete="on" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>

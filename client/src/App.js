@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useState, useEffect} from 'react';
 import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
 import Companys from './components/Companys/companys.js';
 import NewCompany from './components/Forms/newCompany.js';
@@ -10,6 +10,7 @@ import {getCompanys} from './actions/companysAction.js'
 import techStore from './images/techStore2.png';
 
 const App = () => {
+    const [currentId, setCurrentId] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -26,10 +27,10 @@ const App = () => {
                 <Container>
                     <Grid container justify="space-between" alignContent="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
-                            <Companys />
+                            <Companys  setCurrentId={setCurrentId}/>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <NewCompany />
+                            <NewCompany currentId={currentId} setCurrentId={setCurrentId}/>
                         </Grid>
                     </Grid>
                 </Container>

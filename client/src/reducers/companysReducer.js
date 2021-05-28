@@ -4,6 +4,8 @@ const reducer = (companys = [],action) => {
             return action.payload;
         case 'CREATE':
             return [...companys, action.payload];
+        case 'UPDATE':
+            return companys.map((company)=> company._id === action.payload._id ? action.payload : company);
         default:
             return companys;
     }
