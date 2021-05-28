@@ -17,6 +17,7 @@ const NewCompany = ({currentId, setCurrentId}) => {
             dispatch(updateCompany(currentId, companyData));
         }
         else{
+            companyData.contacts=0;
             dispatch(addCompany(companyData));
         }
         clear();

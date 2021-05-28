@@ -28,7 +28,7 @@ const Company = ({company, setCurrentId}) => {
             </div>
             <Typography className={classes.title} gutterBottom variant="h5" component="h2">{company.name}</Typography>
             <CardActions className={classes.cardActions}>
-                <Button disabled size="small" color="primary" ><PeopleAltTwoToneIcon fontSize="small" /> {company.contacts}</Button>
+                <Button disabled size="small" color="primary" ><PeopleAltTwoToneIcon fontSize="small" /> &nbsp; Contacts &nbsp; {company.contacts}</Button>
                 <Button size="small" color="primary" onClick={() => dispatch(deleteCompany(company._id))}><DeleteIcon fontSize="small" /> Delete</Button>
             </CardActions>
 
