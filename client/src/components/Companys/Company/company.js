@@ -5,10 +5,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import UpdateIcon from '@material-ui/icons/Update';
 import PeopleAltTwoToneIcon from '@material-ui/icons/PeopleAltTwoTone';
 import moment from 'moment';
-
+import {useDispatch} from 'react-redux';
+import { deleteCompany } from '../../../actions/companysAction.js';
 
 const Company = ({company, setCurrentId}) => {
     const classes = useStyles();
+    const dispatch = useDispatch();
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={company.logo} title={company.name}/>
@@ -27,7 +29,7 @@ const Company = ({company, setCurrentId}) => {
             <Typography className={classes.title} gutterBottom variant="h5" component="h2">{company.name}</Typography>
             <CardActions className={classes.cardActions}>
                 <Button disabled size="small" color="primary" ><PeopleAltTwoToneIcon fontSize="small" /> {company.contacts}</Button>
-                <Button size="small" color="primary" onClick={() => {}}><DeleteIcon fontSize="small" /> Delete</Button>
+                <Button size="small" color="primary" onClick={() => dispatch(deleteCompany(company._id))}><DeleteIcon fontSize="small" /> Delete</Button>
             </CardActions>
 
 

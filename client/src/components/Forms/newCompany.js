@@ -19,9 +19,11 @@ const NewCompany = ({currentId, setCurrentId}) => {
         else{
             dispatch(addCompany(companyData));
         }
+        clear();
     }
     const clear = () => {
-
+        setCurrentId(null);
+        setCompanyData({id:'',name: '',address: '',zipCode: '',country: '',logo:'',contacts:''});
     }
     useEffect(() => {
         if (companyToUpd) setCompanyData(companyToUpd);
@@ -29,7 +31,7 @@ const NewCompany = ({currentId, setCurrentId}) => {
     return(
         <Paper className={classes.paper}>
             <form autoComplete="on" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Add a new Company</Typography>
+                <Typography variant="h6">{currentId ? 'Update a Company' :'Add a new Company'}</Typography>
                 <TextField required name="id" variant="outlined" label="ID" fullWidth value={companyData.id} onChange={(e)  => setCompanyData({...companyData, id: e.target.value})}/>
                 <TextField required name="name" variant="outlined" label="Name" fullWidth value={companyData.name} onChange={(e)=> setCompanyData({...companyData, name: e.target.value})}/>
                 <TextField required name="address" variant="outlined" label="Address" fullWidth value={companyData.address} onChange={(e)=> setCompanyData({...companyData, address: e.target.value})}/>
