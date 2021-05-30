@@ -1,6 +1,6 @@
 import { CREATE, UPDATE, DELETE, FETCH_ALL} from '../constants/actionTypes.js';
 
-const reducer = (bills = [],action) => {
+const Breducer = (bills = [],action) => {
     switch (action.type) {
         case FETCH_ALL:
             return action.payload;
@@ -15,4 +15,4 @@ const reducer = (bills = [],action) => {
     }
 }; 
 
-export default reducer;
+export default Breducer;

@@ -1,8 +1,8 @@
-/* body {
+body {
      background-image: url(./images/back.svg) 
     
-} */
-body {
+}
+/* body {
     background: linear-gradient(90deg, #ab40f3 0%,#9e21e7 30%,#2618eb 67%, #0898eb 100%);
       background-size: 1000%;
       animation: background 20s linear alternate infinite;
@@ -15,4 +15,4 @@ body {
       to {
         background-position: 100% 0;
       }
-    }
+    } */

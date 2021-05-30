@@ -4,11 +4,17 @@ import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/sty
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
-import Content from './Content';
 import Header from './Header';
 import { Switch, Route,Redirect } from 'react-router-dom';
 import companyContainer from '../Container/companyContainer';
 import billContainer from '../Container/billContainer.js';
+import contactContainer from '../Container/ContactContainer.js';
+import itemContainer from '../Container/ItemContainer.js';
+import welcomeContainer from '../Container/welcomeContainer.js';
+import supportContainer from '../Container/supportContainer.js';
+import profileContainer from '../Container/profileContainer.js';
+
+
 let theme = createMuiTheme({
   palette: {
     primary: {
@@ -34,7 +40,7 @@ let theme = createMuiTheme({
   },
   mixins: {
     toolbar: {
-      minHeight: 65,
+      minHeight: 51,
     },
   },
 });
@@ -153,33 +159,14 @@ const styles = {
     padding: theme.spacing(2),
     background: '#eaeff1',
   },
-  boxWelcome: {
-    backgroundImage:'url("https://tech-store.me/admin/uploads/logo.png")',
-    width:'800px',
-    height: '400px'
-  }
 };
 
 
 function Paperbase(props) {
 
   const { classes } = props;
-  const Welcome=()=>(
-    <center>
-    <div>
-      <br/>
-      <br/>
-      <img
-      width= "450px"
-     src="https://tech-store.me/admin/uploads/logo.png"
-     alt="Welcome"/>
-    </div>
-    </center>
-  );
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [activeBar, setActiveBar]=  React.useState("");
-  React.useEffect(()=>{
-}, [activeBar]);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -190,18 +177,16 @@ function Paperbase(props) {
       <div className={classes.root}>
         <CssBaseline />
         <nav className={classes.drawer}>
-          {/* <Hidden smUp implementation="js">
+          <Hidden smUp implementation="js">
             <Navigator
               PaperProps={{ style: { width: drawerWidth } }}
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
-              setActiveBar={setActiveBar} 
-              activeBar={activeBar}
             />
-          </Hidden> */}
+          </Hidden>
           <Hidden xsDown implementation="css">
-            <Navigator PaperProps={{ style: { width: drawerWidth } }} setActiveBar={setActiveBar} activeBar={activeBar}/>
+            <Navigator PaperProps={{ style: { width: drawerWidth } }} />
           </Hidden>
         </nav>
         <div className={classes.app}>
@@ -209,13 +194,13 @@ function Paperbase(props) {
           <main className={classes.main}>
           <Redirect to="/home" />
               <Switch>
-                <Route path="/home" exact component={Welcome} />
+                <Route path="/home" exact component={welcomeContainer} />
                 <Route path="/company" exact component={companyContainer}/>
-                <Route path="/contact" exact component={Content} />
+                <Route path="/contact" exact component={contactContainer} />
                 <Route path="/bill" exact component={billContainer} />
-                <Route path="/item" exact component={Content} />
-                <Route path="/profile" exact component={Content} />
-                <Route path="/support" exact component={Content} />
+                <Route path="/item" exact component={itemContainer} />
+                <Route path="/profile" exact component={profileContainer} />
+                <Route path="/support" exact component={supportContainer} />
                 <Route path="/login" exact />
               </Switch>
           </main>

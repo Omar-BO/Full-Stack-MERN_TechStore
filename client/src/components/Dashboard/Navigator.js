@@ -17,15 +17,20 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HelpIcon from '@material-ui/icons/Help';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
-
+import ShopTwoIcon from '@material-ui/icons/ShopTwo';
+import Fab from  '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import LinkedIn from '../../images/in1.gif';
+import GitHub from '../../images/gh.gif';
+import Avatar from '@material-ui/core/Avatar'
 
 const categories = [
   {
     id: 'MAIN NAVIGATION',
     children: [
-      { id: 'Companys', icon: <BusinessIcon />, linkk:"/company",active:(()=>window.location.pathname==="/companyy"?true : false) },
-      { id: 'Contacts', icon: <ContactsIcon />, linkk: "/contact" },
+      { id: 'Companys', icon: <BusinessIcon />, linkk:"/company", },
+      { id: 'Contacts', icon: <ContactsIcon />, linkk: "/contact", },
       { id: 'Bill', icon: <ReceiptIcon />, linkk: "/bill" },
       { id: 'Items', icon: <ShoppingCartIcon />, linkk: "/item" },
       // { id: 'Functions', icon: <SettingsEthernetIcon /> },
@@ -37,7 +42,7 @@ const categories = [
     children: [
       { id: 'Profile', icon: <AccountCircleIcon />,linkk:"/profile" },
       { id: 'Customer Support', icon: <HelpIcon />,linkk:"/support" },
-      { id: 'LOG OUT', icon: <ExitToAppIcon />,linkk:"/login" },
+      { id: 'LOG OUT', icon: <ExitToAppIcon />,linkk:"/login",active:true },
     ],
   },
 ];
@@ -55,7 +60,7 @@ const styles = (theme) => ({
     paddingBottom: 1,
     color: 'rgba(255, 255, 255, 0.7)',
     '&:hover,&:focus': {
-      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
     },
   },
   itemCategory: {
@@ -81,28 +86,31 @@ const styles = (theme) => ({
   divider: {
     marginTop: theme.spacing(2),
   },
+  colorText: {
+    color: '#5AFF3D',
+    fontFamily: 'Nunito',
+    fontSize: 35,
+
+  },
+  title: {
+    color: '#fff',
+    fontFamily: 'Nunito',
+    fontSize: 35,
+  },
+
 });
 
 function Navigator(props) {
   const { classes, ...other } = props;
-  // const { setActiveBar, ...set } = props;
-  const pop = Object.assign({}, props);
-  // const { activeBar, ...other } = props;
-  // setActiveBar
- const test = (linkk)=>{
-    console.log("tarabbi");
-    setTimeout(()=>{
-      pop.setActiveBar(linkk)
-    },10000);
-    // pop.setActiveBar(linkk);
-
-  }
-  
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          Tech Store   <Avatar alt="Logo" src="https://www.energytechstore.co.za/wp-content/uploads/2017/07/EnergytechLogo.gif" className={classes.large} style={{ height: '70px', width: '70px' }}/>
+        <span className={classes.title}>
+            <span className={classes.colorText}>Tech </span> Store
+          </span>  &nbsp;
+          <ShopTwoIcon style={{ fontSize: 40,color: '#5AFF3D' }} className="fa fa-plus-circle"/>
+          {/* <Avatar alt="Logo" src="https://www.xgtechstore.com/wp-content/uploads/2020/12/Logo-with-transparent-1-250x250-1.png" className={classes.large} style={{ height: '70px', width: '70px' }}/> */}
         </ListItem>
         <ListItem button component={Link} to="/home" className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>
@@ -131,11 +139,6 @@ function Navigator(props) {
               <ListItem
                 key={childId}
                 button 
-                onClick={
-                  // pop.setActiveBar(linkk)
-                  // pop.activeBar===linkk
-                  test(linkk)
-                }
                 className={clsx(classes.item, active && classes.itemActiveItem)}
                 component={Link} to={linkk}
               >
@@ -153,6 +156,31 @@ function Navigator(props) {
             <Divider className={classes.divider} />
           </React.Fragment>
         ))}
+        <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory, classes.oo)} style={{display: 'flex', justifyContent: 'center'}}>    
+          <a rel="noreferrer" href="https://www.linkedin.com/in/omar-ben-omrane" target="_blank"> 
+          <Fab>
+            <Tooltip title="Go to Omar's LinkedIn Page.">
+              <IconButton>
+                <img src={LinkedIn} height="50px" alt="LinkedIn"/>
+                {/* <LinkedInIcon style={{ fontSize: 40,color: '#2867B2' }} /> */}
+              </IconButton>
+            </Tooltip>    
+          </Fab>
+          </a>
+          &nbsp;&nbsp;&nbsp;
+          <a rel="noreferrer" href="https://github.com/Omar-BO" target="_blank" >
+          <Fab>
+            <Tooltip title="Go to Omar's GitHub Page.">
+              <IconButton>
+              <Avatar alt="Remy Sharp" src={GitHub} height="60px" className={classes.large} />
+              </IconButton>
+            </Tooltip>    
+          </Fab>
+          </a>
+        </ListItem>
+        <br/>
+        <div style={{display: 'flex', justifyContent: 'center', fontSize:"60", color:"#ffffff"}}>Made with ❤️ in Tunisia</div>   
+        <div style={{display: 'flex', justifyContent: 'center', fontSize:"60", color:"#ffffff"}}>OMAR BEN OMRANE</div> 
       </List>
     </Drawer>
   );

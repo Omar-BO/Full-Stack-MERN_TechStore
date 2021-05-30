@@ -7,7 +7,6 @@ import {useDispatch} from 'react-redux';
 import {getCompanys} from '../../actions/companysAction.js'
 import BusinessIcon from '@material-ui/icons/Business';
 
-import techStore from '../../images/techStore2.png';
 
 const CompanyContainer = () => {
 
