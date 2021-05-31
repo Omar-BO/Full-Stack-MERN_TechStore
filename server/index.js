@@ -13,6 +13,9 @@ app.use(bodyParser.json({ limit: "25mb", extended:true}));
 app.use(bodyParser.urlencoded({ limit: "25mb", extended:true}));
 app.use(cors());
 app.use('/TechStore', routes);
+app.get ('/',(req,res)=>{
+    res.send('Hello to OBO Tech Store API!')
+});
 
 const CONNECTION_URL =process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
