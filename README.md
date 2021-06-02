@@ -26,7 +26,7 @@
     <br />
     <a href="https://youtu.be/UXRLKhYfO4s" rel="noopener noreferrer" target="_blank">View Demo</a>
     ·
-    <a href="https://omar-bo-tech-store.netlify.app/home" rel="noopener noreferrer" target="_blank">Live Site</a>
+    <a href="https://omar-bo-tech-store.netlify.app" rel="noopener noreferrer" target="_blank">Live Site</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues" rel="noopener noreferrer" target="_blank">Report Bug</a>
     ·
