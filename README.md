@@ -67,7 +67,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-## [Lve Site](https://omar-bo-tech-store.netlify.app)
+### [Live Site](https://omar-bo-tech-store.netlify.app)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Omar-BO/Full-Stack-MERN_TechStore/main/Full-Stack-MERN_TechStore/Home%20Page.png" alt="Logo" width="1200" >
