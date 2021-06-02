@@ -66,8 +66,11 @@
 ---
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+## [Lve Site](https://omar-bo-tech-store.netlify.app)
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Omar-BO/Full-Stack-MERN_TechStore/main/Full-Stack-MERN_TechStore/Home%20Page.png" alt="Logo" width="1600" >
+  <img src="https://raw.githubusercontent.com/Omar-BO/Full-Stack-MERN_TechStore/main/Full-Stack-MERN_TechStore/Home%20Page.png" alt="Logo" width="1200" >
 </p>
 
 * Using React, Node.js, Express & MongoDB, this Full Stack MERN Project was build to manage Customers Relationships of a Technology Store. The App is called `"Tech Store"` and it is a simple CRUD MERN application that allows users to manage a store's Clients (Add, Update, Delete), Contacts of it's Client, Bills and Bill's Items.
